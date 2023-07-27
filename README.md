@@ -28,6 +28,20 @@ cd "TGV_QSM"
 # run TGV_QSM
 miniconda2/bin/tgv_qsm
 ```
+For some reason this worked 
+I used rackspacedot/python27-ansible23:latest docker container
+``` 
+wget -c https://repo.anaconda.com/miniconda/Miniconda2-4.6.14-Linux-x86_64.sh
+chmod +x Miniconda2-4.6.14-Linux-x86_64.sh
+bash ./Miniconda2-4.6.14-Linux-x86_64.sh -b -f -p /usr/local >> /dev/null
+conda install -q -y --prefix /usr/local -c conda-forge cython==0.29.14 pyparsing numpy scipy==0.17.1 nibabel==2.1.0 pydicom==2.0.0 >> /dev/null
+wget http://www.neuroimaging.at/media/qsm/TGVQSM-plus.zip
+unzip TGVQSM-plus.zip >> /dev/null
+rm TGVQSM-master-011045626121baa8bfdd6633929974c732ae35e3/setup.py
+cd TGVQSM-master-011045626121baa8bfdd6633929974c732ae35e3/ && wget https://raw.githubusercontent.com/NeuroDesk/caid/master/recipes/tgvqsm/setup.py
+cd TGVQSM-master-011045626121baa8bfdd6633929974c732ae35e3/ && python setup.py install >> /dev/null
+
+```
 
 ## Usage
 
